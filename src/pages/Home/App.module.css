@@ -1,0 +1,16 @@
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-straight/css/uicons-solid-straight.css');
+
+.app {
+    background-image: url("../../../public/resources/background.jpg");
+    background-attachment: fixed;
+    background-size: auto;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
