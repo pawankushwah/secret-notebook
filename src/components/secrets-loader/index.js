@@ -20,7 +20,7 @@ export default function SecretsLoader({onHide}) {
                 <div className={`${styles.book__pg} ${styles.book__pg5}`}></div>
             </div>
             <div className="mt-10">Loading Secret Notes...</div>
-            <p className="text-gray-600 text-xs text-center">If the app don't load than check your internet connection <br/> or <br/> <div className="text-blue-500 cursor-pointer" onClick={toggleComponent}>see the loading website</div></p>
+            <p className="text-gray-600 text-xs text-center">If the app don't load than check your internet connection <br/> or <br/> <span className="text-blue-500 cursor-pointer" onClick={toggleComponent}>see the loading website</span></p>
         </div>
     )
 }

@@ -1,25 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { StickyNotes } from "../../components/sticky-notes";
 import Guide from "../../components/guide";
 import SecretsLoader from "../../components/secrets-loader";
-import { Link } from "react-router-dom";
-
-const messageBubbleMessageList = [
-    ["Welcome to Secret Notes! Here you can read the secrets of other people"],
-    ["You can change the page of the Secret book by clicking on the page or swiping the page"],
-    ["If you want to create your own secret than you can click on the pen available on the right side of the secret book"],
-    ["Now you are ready for the Enjoy the secrets. Have Fun!"]
-]
-
-const notes = [
-    { message: "Hello World" },
-    { message: "Hello World 2 Hello World 2 Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2Hello World 2" },
-    { message: "Hello World 3" },
-    { message: "Hello World 4" },
-    { message: "Hello World 5" },
-    { message: "Hello World 6" }
-]
 
 function Home() {
     const [isGuideHidden, setIsGuideHidden] = useState(true);
@@ -35,6 +18,34 @@ function Home() {
         setIsGuideHidden(false);
         setIsSecretLoaderHidden(true);
     }
+
+    const [messageBubbleMessageList, setMessageBubbleMessageList] = useState([]);
+    useEffect(()=> {
+        let response = fetch("http://127.0.0.1:3333/getGuideMessages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let result = response.then((response) => response.json());
+        result.then((data) => setMessageBubbleMessageList(data));
+    }, [])
+
+    const [notes, setNotes] = useState([]);
+    useEffect(()=> {
+        let response = fetch("http://127.0.0.1:3333/getSecretNotes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let result = response.then((response) => response.json());
+        result.then((data) => {
+            setNotes(data)
+            setTimeout(() => (setIsSecretLoaderHidden(true)), 3000)
+            setIsGuideHidden(false);
+        });
+    }, [])
 
     return (
         <div>

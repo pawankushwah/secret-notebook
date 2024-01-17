@@ -25,7 +25,7 @@ export function StickyNotes({notesData}) {
                             <Page key={index} number={index + 1}>
                                 <div className="p-4 overflow-auto h-full">
                                     <div className="text-center">Secret {index + 1}</div>
-                                    <div className="text-xs mt-2 h-auto">{data.message}</div>
+                                    <div className="text-xs mt-2 h-auto">{data.secret}</div>
                                 </div>
                             </Page>
                         )
