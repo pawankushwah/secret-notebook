@@ -21,7 +21,7 @@ function Home() {
 
     const [messageBubbleMessageList, setMessageBubbleMessageList] = useState([]);
     useEffect(()=> {
-        let response = fetch("http://127.0.0.1:3333/getGuideMessages", {
+        let response = fetch("https://secret-notebook-api.vercel.app/getGuideMessages", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ function Home() {
 
     const [notes, setNotes] = useState([]);
     useEffect(()=> {
-        let response = fetch("http://127.0.0.1:3333/getSecretNotes", {
+        let response = fetch("https://secret-notebook-api.vercel.app/getSecretNotes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

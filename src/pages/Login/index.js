@@ -57,7 +57,7 @@ const Signup = () => {
         if (errors === "" && formData.username.trim() !== "") {
             setIsLoading(true);
             console.log(formData)
-            let response = await fetch("http://127.0.0.1:3333/login", {
+            let response = await fetch("https://secret-notebook-api.vercel.app/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

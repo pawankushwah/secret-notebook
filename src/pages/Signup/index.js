@@ -100,7 +100,7 @@ const Signup = () => {
         console.log(usersData);
         setIsLoading(true);
         setIsUsernameAvailable(true);
-        fetch("http://127.0.0.1:3333/signup", {
+        fetch("https://secret-notebook-api.vercel.app/signup", {
             body: JSON.stringify(usersData),
             headers: {
                 "Content-Type": "application/json"
