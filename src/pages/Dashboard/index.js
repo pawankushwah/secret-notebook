@@ -16,7 +16,7 @@ export function Dashboard() {
     }
 
     async function getUserData() {
-        let response = await fetch("https://secret-notebook-api.vercel.app//getUserData", {
+        let response = await fetch("https://secret-notebook-api.vercel.app/getUserData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -36,7 +36,7 @@ export function Dashboard() {
     async function logoutTheUser() {
         try {
             setIsLoading(true);
-            let response = await fetch("https://secret-notebook-api.vercel.app//logout", {
+            let response = await fetch("https://secret-notebook-api.vercel.app/logout", {
                 method: "DELETE",
                 headers: {
                     'Content-Type': "application/json"
@@ -55,7 +55,7 @@ export function Dashboard() {
     }
 
     async function uploadSecretNote() {
-        let response = await fetch("https://secret-notebook-api.vercel.app//setSecret", {
+        let response = await fetch("https://secret-notebook-api.vercel.app/setSecret", {
             body: JSON.stringify({ secretNote, userId: localStorage.userId }),
             headers: {
                 "Content-Type": "application/json"
